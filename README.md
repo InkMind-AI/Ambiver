@@ -1,4 +1,4 @@
-# AmbiVer
+# AmbiVer: 3D Instruction Ambiguity Detection
 
 Official code for [*3D Instruction Ambiguity Detection*](https://arxiv.org/abs/2601.05991) (arXiv:2601.05991).
 
