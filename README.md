@@ -2,7 +2,6 @@
 
 Official code for [*3D Instruction Ambiguity Detection*](https://arxiv.org/abs/2601.05991) (arXiv:2601.05991).
 
-AmbiVer is **training-free**: Perception (GroundingDINO + BEV) → zero-shot **Qwen3-VL-8B-Instruct**.
 
 ---
 
@@ -54,14 +53,7 @@ Full benchmark and multi-GPU instructions: [docs/REPRODUCE.md](docs/REPRODUCE.md
 
 ---
 
-## Expected accuracy (local Qwen3-VL-8B, zero-shot)
 
-| Split | N | Acc |
-|-------|---|-----|
-| Test | 2,131 | ~61% |
-| Full | 22,081 | ~62% |
-
----
 
 ## Citation
 
@@ -72,4 +64,4 @@ Full benchmark and multi-GPU instructions: [docs/REPRODUCE.md](docs/REPRODUCE.md
   year={2026}, eprint={2601.05991}, archivePrefix={arXiv}, primaryClass={cs.AI}}
 ```
 
-MIT License.
+
