@@ -57,10 +57,15 @@ python scripts/run_ambi3d_eval.py \
 ## Citation
 
 ```bibtex
-@misc{ding20263dinstructionambiguitydetection,
-  title={3D Instruction Ambiguity Detection},
-  author={Jiayu Ding and Haoran Tang and Hongbo Jin and Wei Gao and Ge Li},
-  year={2026}, eprint={2601.05991}, archivePrefix={arXiv}, primaryClass={cs.AI}}
+@misc{ding20263dinstructionambiguitydetection
+      title={3D Instruction Ambiguity Detection}, 
+      author={Jiayu Ding and Haoran Tang and Hongbo Jin and Wei Gao and Ge Li},
+      year={2026},
+      eprint={2601.05991},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2601.05991}, 
+} 
 ```
 
 
