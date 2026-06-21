@@ -500,7 +500,7 @@ def main():
     bev_dir = project_root() / 'bev_maps'
     if not bev_dir.is_dir() or not any(bev_dir.glob('*.jpg')):
         print(f'Warning: BEV maps not found under {bev_dir}')
-        print('Generate maps first: docs/BEV.md  |  python scripts/generate_bev_maps.py --help')
+        print('Generate maps first with BundleFusion: docs/BEV.md')
     with open(args.dataset, 'r') as f:
         questions = json.load(f)
     if args.limit:

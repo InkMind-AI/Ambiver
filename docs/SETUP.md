@@ -46,19 +46,9 @@ Single-env alternative: add `--use_batch_detector` to the eval script.
 
 AmbiVer needs a precomputed **bird's-eye view (BEV)** image per scene (`I_bev`, paper §3.2). They are **not** shipped in this repo.
 
-**Principle:** fuse multi-view RGB-D into a 3D point cloud, then orthographically project with a fixed top-down camera (Appendix B.1 uses [BundleFusion](https://github.com/niessner/BundleFusion)).
+Generate `I_bev` with [BundleFusion](https://github.com/niessner/BundleFusion) (Appendix B.1): reconstruct a scene point cloud from ScanNet RGB-D, then render a fixed top-down orthographic view. Save as `bev_maps/{scene_id}.jpg`.
 
-**Quick start** (included script):
-
-```bash
-export SCANNET_ROOT=/path/to/scannet
-python scripts/generate_bev_maps.py \
-  --scannet_root "$SCANNET_ROOT" \
-  --output_dir ./bev_maps \
-  --from_dataset data/ambitest.json
-```
-
-Full details and alternatives: [docs/BEV.md](docs/BEV.md). Set `export BEV_MAPS_DIR=./bev_maps` if using a custom path.
+Details: [docs/BEV.md](docs/BEV.md). Override path with `export BEV_MAPS_DIR=./bev_maps`.
 
 ## 6. Qwen3-VL-8B
 
