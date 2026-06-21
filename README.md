@@ -49,7 +49,6 @@ python scripts/run_ambi3d_eval.py \
   --no_vis --target_frames 20
 ```
 
-Full benchmark and multi-GPU instructions: [docs/REPRODUCE.md](docs/REPRODUCE.md).
 
 ---
 
