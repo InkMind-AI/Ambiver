@@ -38,6 +38,11 @@ data/*.json
 data/scannet/
 scannet/
 
+# User-generated BEV maps (see docs/BEV.md)
+bev_maps/*.jpg
+bev_maps/*.jpeg
+bev_maps/*.png
+
 # Evaluation outputs
 results/
 evaluation_*/

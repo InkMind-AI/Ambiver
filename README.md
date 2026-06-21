@@ -30,7 +30,14 @@ bash scripts/download_data.sh
 
 Dataset: [jiayuttkx/ambi3d](https://huggingface.co/datasets/jiayuttkx/ambi3d)
 
-BEV maps are included in this repo: `bev_maps/` (707 ScanNet scenes).
+**BEV maps are not included.** Generate top-down bird's-eye views from ScanNet before evaluation ([docs/BEV.md](docs/BEV.md)).
+
+```bash
+python scripts/generate_bev_maps.py \
+  --scannet_root "$SCANNET_ROOT" \
+  --output_dir ./bev_maps \
+  --from_dataset data/ambitest.json
+```
 
 ---
 

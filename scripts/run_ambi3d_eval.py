@@ -498,9 +498,9 @@ def main():
         print('Clone https://github.com/IDEA-Research/GroundingDINO and download weights.')
         print('Then set: export GROUNDING_DINO_ROOT=/path/to/GroundingDINO')
     bev_dir = project_root() / 'bev_maps'
-    if not bev_dir.is_dir() or not any(bev_dir.iterdir()):
+    if not bev_dir.is_dir() or not any(bev_dir.glob('*.jpg')):
         print(f'Warning: BEV maps not found under {bev_dir}')
-        print('Expected precomputed maps in ./bev_maps/ or set BEV_MAPS_DIR')
+        print('Generate maps first: docs/BEV.md  |  python scripts/generate_bev_maps.py --help')
     with open(args.dataset, 'r') as f:
         questions = json.load(f)
     if args.limit:

@@ -1,4 +1,4 @@
-"""Load precomputed BEV maps shipped with AmbiVer."""
+"""Load user-generated BEV maps (see docs/BEV.md)."""
 from __future__ import annotations
 import os
 import cv2
@@ -16,6 +16,7 @@ def generate_bev_from_depth_scene(scannet_root, scene_id, bev_dir=None, **kwargs
     """
     Load precomputed bird's-eye view images for a ScanNet scene.
 
+    Generate maps first — see docs/BEV.md and scripts/generate_bev_maps.py.
     Expected files under bev_maps/ (override with BEV_MAPS_DIR):
       - grayscale: {scene_id}.(png|jpg)
       - color: {scene_id}_color.(png|jpg)

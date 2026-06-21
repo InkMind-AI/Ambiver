@@ -42,9 +42,23 @@ Evaluation calls GroundingDINO via subprocess; the `ambiver` env does not need i
 
 Single-env alternative: add `--use_batch_detector` to the eval script.
 
-## 5. BEV maps
+## 5. BEV maps (required, user-generated)
 
-Included in `./bev_maps/` (707 scenes). Override with `export BEV_MAPS_DIR=...` if needed.
+AmbiVer needs a precomputed **bird's-eye view (BEV)** image per scene (`I_bev`, paper §3.2). They are **not** shipped in this repo.
+
+**Principle:** fuse multi-view RGB-D into a 3D point cloud, then orthographically project with a fixed top-down camera (Appendix B.1 uses [BundleFusion](https://github.com/niessner/BundleFusion)).
+
+**Quick start** (included script):
+
+```bash
+export SCANNET_ROOT=/path/to/scannet
+python scripts/generate_bev_maps.py \
+  --scannet_root "$SCANNET_ROOT" \
+  --output_dir ./bev_maps \
+  --from_dataset data/ambitest.json
+```
+
+Full details and alternatives: [docs/BEV.md](docs/BEV.md). Set `export BEV_MAPS_DIR=./bev_maps` if using a custom path.
 
 ## 6. Qwen3-VL-8B
 
