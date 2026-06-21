@@ -1,0 +1,20 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.40.0
+accelerate>=0.20.0
+openai>=1.0.0
+
+# Vision and data processing
+opencv-python>=4.8.0
+numpy>=1.24.0
+Pillow>=10.0.0
+supervision>=0.18.0
+
+# Utilities
+tqdm>=4.65.0
+spacy>=3.7.0
+
+# After install: python -m spacy download en_core_web_sm
+
+# GroundingDINO must be installed separately; see docs/SETUP.md

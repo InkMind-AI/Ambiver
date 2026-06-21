@@ -1,0 +1,75 @@
+# AmbiVer
+
+Official code for [*3D Instruction Ambiguity Detection*](https://arxiv.org/abs/2601.05991) (arXiv:2601.05991).
+
+AmbiVer is **training-free**: Perception (GroundingDINO + BEV) → zero-shot **Qwen3-VL-8B-Instruct**.
+
+---
+
+## Install
+
+```bash
+git clone https://github.com/InkMind-AI/Ambiver.git && cd Ambiver
+
+conda create -n ambiver python=3.10 -y && conda activate ambiver
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+pip install -e .
+```
+
+You also need [ScanNet](http://www.scan-net.org/) and [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO). We recommend **two conda envs** (Qwen3-VL and GroundingDINO often conflict). See [docs/SETUP.md](docs/SETUP.md).
+
+---
+
+## Download data
+
+Annotations are hosted on Hugging Face:
+
+```bash
+bash scripts/download_data.sh
+```
+
+Dataset: [jiayuttkx/ambi3d](https://huggingface.co/datasets/jiayuttkx/ambi3d)
+
+BEV maps are included in this repo: `bev_maps/` (707 ScanNet scenes).
+
+---
+
+## Run
+
+```bash
+export SCANNET_ROOT=/path/to/scannet
+export GROUNDING_DINO_ROOT=/path/to/GroundingDINO
+export GROUNDINGDINO_ENV=/path/to/conda/envs/groundingdino
+conda activate ambiver
+
+python scripts/run_ambi3d_eval.py \
+  --dataset data/ambitest.json \
+  --scannet_root "$SCANNET_ROOT" \
+  --output_dir /path/to/output/ambitest \
+  --no_vis --target_frames 20
+```
+
+Full benchmark and multi-GPU instructions: [docs/REPRODUCE.md](docs/REPRODUCE.md).
+
+---
+
+## Expected accuracy (local Qwen3-VL-8B, zero-shot)
+
+| Split | N | Acc |
+|-------|---|-----|
+| Test | 2,131 | ~61% |
+| Full | 22,081 | ~62% |
+
+---
+
+## Citation
+
+```bibtex
+@misc{ding20263dinstructionambiguitydetection,
+  title={3D Instruction Ambiguity Detection},
+  author={Jiayu Ding and Haoran Tang and Hongbo Jin and Wei Gao and Ge Li},
+  year={2026}, eprint={2601.05991}, archivePrefix={arXiv}, primaryClass={cs.AI}}
+```
+
+MIT License.
